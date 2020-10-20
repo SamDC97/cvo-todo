@@ -5,10 +5,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ToDoMapper {
-    private String personName;
-    private String taskDescription;
 
-    public ToDoDTO map(ToDo toDo){
-        return new ToDoDTO(toDo.getId(), toDo.getPersonId(), toDo.getTaskId(), personName, taskDescription);
+    public ToDoDTO map(ToDo toDo) {
+        return ToDoDTO.builder()
+                .id(toDo.getId())
+                .personId(toDo.getPersonId())
+                .taskId(toDo.getTaskId())
+                .build();
     }
 }
